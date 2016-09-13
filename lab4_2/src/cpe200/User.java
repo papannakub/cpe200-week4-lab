@@ -11,18 +11,42 @@ public class User {
     }
 
     public boolean setUserName(String name) {
-        return false;
+
+        this.userName = name;
+        String pettern = "[a-zA-Z][a-zA-Z0-9]+";
+
+        if (name.matches(pettern) && name.length()>=8) {
+            this.userName =name;
+            return true;
+        }
+
+
+        else {
+            return false;
+        }
     }
 
     public boolean setPassword(String name) {
-        return false;
+
+        this.password = name;
+        String pettern = "(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[A-Za-z0-9]+";
+        if (name.matches(pettern) && (name.length() >= 12)) {
+            this.password = name;
+            return true;
+        }
+
+
+        else {
+            return false;
+        }
     }
 
     public String getUserName() {
-        return null;
+        return this.userName;
+
     }
 
     public String getPassword() {
-        return null;
+        return this.password;
     }
 }
